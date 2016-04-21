@@ -24,9 +24,9 @@ elsif
 elsif
     operator == "3"
     result = num1.to_i * num2.to_i
-  else
-    result = num1.to_f / num2.to_f
-  end
+else
+   result = num1.to_f / num2.to_f
+end
 
 
 
