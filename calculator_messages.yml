@@ -1,0 +1,18 @@
+# calculator_messages.yml
+en:
+  welcome : " Welcome to calculator Please enter your name"
+  name : " please enter your name"
+  number1 : " pick the first number "
+  valid_number : "please enter a valid number"
+  number2 : "pick the second number"
+  valid_operation : "please choose one of the 4 operations only"
+  other_operation : "do you have another calculation? type Y for yes"
+
+es:
+  welcome : " Bienvenido a calculadora favor introduzca su nombre"
+  name : " por favor, escriba su nombre"
+  number1 : " escoger el primer número "
+  valid_number : "  por favor ingrese un número valido "
+  number2 : " escoger el segundo número "
+  valid_operation : "elija uno de los 4 operaciones únicamente"
+  other_operation : "O usted tiene otro cálculo ? escriba Y para Sí"
