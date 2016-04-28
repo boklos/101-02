@@ -1,1 +1,0 @@
-puts "c9 test"
