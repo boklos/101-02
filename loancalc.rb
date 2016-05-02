@@ -49,9 +49,9 @@ prompt ("your loan amount is #{loan}")
 # get interest rate from user
 rate = ''
 loop do 
-    prompt ("enter interest rate from 0 to 30")
+    prompt ("enter interest rate from 0.0 to 29.99")
     rate = Kernel.gets().chomp()
-    if integer?(rate)
+    if number_valid(rate)
       break
     else
       prompt("please enter a valid value")
@@ -66,7 +66,7 @@ term = ''
 loop do 
     prompt ("enter number of months")
     term = Kernel.gets().chomp()
-    if number_valid(term)
+    if integer?(term)
       break
     else
       prompt("please enter a valid value")
