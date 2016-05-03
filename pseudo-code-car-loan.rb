@@ -20,11 +20,12 @@ puts total payments , total interest paid.
 
 prompt (" welcom to car calculator")
 prompt (" enter car price")
-price = gets.chomp
+price = gets.chomp  
 validae
 pompt (" enter dwn payment")
 down = gets.chomp
 valiate
+
 loan = price - down
 validate
 prompt ( " enter interst rate")
