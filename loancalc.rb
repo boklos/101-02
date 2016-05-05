@@ -24,6 +24,7 @@ loop do
     prompt"please enter a valid value"
   end
 end
+
 down = ''
 loop do
   prompt"Please enter down payment value"
@@ -34,6 +35,7 @@ loop do
     prompt"please enter a valid value"
   end
 end
+
 loan = price.to_f - down.to_f
 loan = loan.round(2)
 prompt"your loan amount is #{loan}"
@@ -64,7 +66,7 @@ end
 term = term.to_i
 
 if rate_monthly != 0
-  # monthly payment formula
+
   monthly_payment = loan * (rate_monthly * (1 + rate_monthly)**term) / ((1 + rate_monthly)**term - 1)
 
   monthly_payment = monthly_payment.round(2)
