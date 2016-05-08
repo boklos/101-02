@@ -5,8 +5,9 @@ end
 GAME = %w(rock  paper  scissors)
 
 def win?(first, second)
-	if (first == "rock" && second == "scissors") || (first == "scissors" &&
-		second == "paper") || (first == "paper" && second == "rock")
+	if (first == "rock" && (second == "scissors" || second == "lizard")) || (first == "scissors" &&
+		(second == "paper" || second == "lizard")) || (first == "paper" && (second == "rock" || second == "spoke")) ||
+		(first == "lizard" && (second == "paper" || second == "spoke")) || (first == "spoke" && (second == "scissors" || second == "rock"))
 	end
 end
 
@@ -22,7 +23,7 @@ def display_results(choice , computer_choice)
 end
 choice = ''
 loop do
-	prompt(" Hello user please choose: #{GAME.join(', ')}")
+	prompt(" Hello user please choose: #{GAME.join(', ')} p=>paper , r=> rock , l=>lizard, sc=>scissors , sp=>spoke")
 	choice = gets.chomp
 	if GAME.include?(choice)
 		break
