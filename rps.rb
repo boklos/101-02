@@ -20,27 +20,33 @@ def shorten_input(input)
 end
 
 
-score = 0
+$score_player = []
+$score_pc = []
 
-def get_score()
-	score += 1
+def add_score(side)
+	if side.length < 5
+		side << 1
+	end	
 end
 
 
 
 def win?(first, second)
-	if ((first == "rock" && ((second == "scissors" || second == "lizard"))) || (first == "scissors" &&
-		((second == "paper" || second == "lizard"))) || (first == "paper" && ((second == "rock" || second == "spoke"))) ||
-		(first == "lizard" && ((second == "paper" || second == "spoke"))) || (first == "spoke" && ((second == "scissors" || second == "rock"))))
-	end
+	 (first == "rock" && (second == "scissors" || second == "lizard")) || (first == "scissors" &&
+		(second == "paper" || second == "lizard")) || (first == "paper" && (second == "rock" || second == "spoke")) ||
+		(first == "lizard" && (second == "paper" || second == "spoke")) || (first == "spoke" && (second == "scissors" || second == "rock"))
+	
 end
 
 loop do
-def display_results(choice , computer_choice)
-	if win?(choice , computer_choice)
-		#get_score
+
+def display_results(newchoice , computer_choice)
+	
+	if win?(newchoice , computer_choice)
+		add_score($score_player)
 		prompt(" You win")
-	elsif win?(computer_choice , choice)
+	elsif win?(computer_choice , newchoice)
+		add_score($score_pc)
 		prompt(" You loose")
 	else
 		prompt("It's a tie")
@@ -48,11 +54,12 @@ def display_results(choice , computer_choice)
 end
 
 choice = ''
+newchoice=''
 loop do
 	prompt(" Hello user please choose: #{GAME.join(', ')} OR choose abbreviation: p=>paper , r=> rock , l=>lizard, sc=>scissors , sp=>spoke")
 	choice = gets.chomp
-
-	if GAME.include?(shorten_input(choice))
+	newchoice = shorten_input(choice)
+	if GAME.include?(newchoice)
 		break
 	else
 		prompt("please type full word from the 5 choices or choose an abreviation")
@@ -61,10 +68,18 @@ end
 
 computer_choice = GAME.sample
 
-prompt(" you choose: #{shorten_input(choice)} and the computer choose: #{computer_choice}")
-display_results(choice, computer_choice)
+prompt(" you choose: #{newchoice} and the computer choose: #{computer_choice}")
+display_results(newchoice, computer_choice)
+
+if $score_pc.length >= 5
+	prompt("PC reached 5 points and finished the game")
+	break
+elsif $score_player.length >= 5 
+	prompt("you reached 5 points and finished the game")
+	break	
+end
 
 prompt("do you want to play again ? choose yes/no")
 answer = gets.chomp
-break unless answer.start_with?("y")
+break unless answer.start_with?"y"
 end
