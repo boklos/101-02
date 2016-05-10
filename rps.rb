@@ -32,23 +32,15 @@ end
 
 
 def win?(first, second)
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 7dbb0e6ee8c8864919522951dabb07e0ee22fb89
+
 	 (first == "rock" && (second == "scissors" || second == "lizard")) || (first == "scissors" &&
 		(second == "paper" || second == "lizard")) || (first == "paper" && (second == "rock" || second == "spoke")) ||
 		(first == "lizard" && (second == "paper" || second == "spoke")) || (first == "spoke" && (second == "scissors" || second == "rock"))
 	
-<<<<<<< HEAD
-=======
-=======
 	if ((first == "rock" && ((second == "scissors" || second == "lizard"))) || (first == "scissors" &&
 		((second == "paper" || second == "lizard"))) || (first == "paper" && ((second == "rock" || second == "spoke"))) ||
 		(first == "lizard" && ((second == "paper" || second == "spoke"))) || (first == "spoke" && ((second == "scissors" || second == "rock"))))
 	end
->>>>>>> 3c2146e71c324ef9d708f0d4882df55a7da63526
->>>>>>> 7dbb0e6ee8c8864919522951dabb07e0ee22fb89
 end
 
 loop do
