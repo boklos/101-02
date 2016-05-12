@@ -4,47 +4,49 @@ end
 
 GAME = %w(rock  paper  scissors lizard spoke)
 
-def shorten_input(input)
-	case input
-	when "p" , "P" , "paper"
+def format_choice(input)
+  case input
+	when "p", "P", "paper"
 	  input = "paper"
-	when "r", "R" , "rock"
+	when "r", "R", "rock"
 	  input = "rock"
-	when "l" , "L" , "lizard"
+	when "l", "L", "lizard"
 	  input = "lizard"
-	when "sc" , "Sc" , "SC" , "scissors"
+	when "sc", "Sc", "SC", "scissors"
 	  input = "scissors"
-	when "sp" , "Sp" , "SP" , "spoke"
+	when "sp", "Sp", "SP" , "spoke"
 	  input = "spoke"
 	end
 end
 
 
-$score_player = []
-$score_pc = []
+score_player = []
+score_pc = []
 
-def add_score(side)
-	if side.length < 5
-		side << 1
+def add_score(score)
+	if score.length < 5
+		score << 1
 	end	
 end
 
 
 
 def win?(first, second)
-	 (first == "rock" && (second == "scissors" || second == "lizard")) || (first == "scissors" &&
-		(second == "paper" || second == "lizard")) || (first == "paper" && (second == "rock" || second == "spoke")) ||
-		(first == "lizard" && (second == "paper" || second == "spoke")) || (first == "spoke" && (second == "scissors" || second == "rock"))
+	 (first == "rock" && (second == "scissors" || second == "lizard")) ||
+	 (first == "scissors" && (second == "paper" || second == "lizard")) ||
+	 (first == "paper" && (second == "rock" || second == "spoke")) ||
+	 (first == "lizard" && (second == "paper" || second == "spoke")) ||
+	 (first == "spoke" && (second == "scissors" || second == "rock"))
 	
 end
 
 loop do
-def display_results(newchoice , computer_choice)
+def display_results(newchoice , computer_choice, score_player, score_pc)
 	if win?(newchoice , computer_choice)
-		add_score($score_player)
+		add_score(score_player)
 		prompt(" You win")
 	elsif win?(computer_choice , newchoice)
-		add_score($score_pc)
+		add_score(score_pc)
 		prompt(" You loose")
 	else
 		prompt("It's a tie")
@@ -54,9 +56,10 @@ end
 choice = ''
 newchoice=''
 loop do
-	prompt(" Hello user please choose: #{GAME.join(', ')} OR choose abbreviation: p=>paper , r=> rock , l=>lizard, sc=>scissors , sp=>spoke")
+	prompt(" Hello user please choose: #{GAME.join(', ')} OR choose abbreviation:\
+	p=>paper , r=> rock , l=>lizard, sc=>scissors , sp=>spoke")
 	choice = gets.chomp
-	newchoice = shorten_input(choice)
+	newchoice = format_choice(choice)
 	if GAME.include?(newchoice)
 		break
 	else
@@ -67,12 +70,12 @@ end
 computer_choice = GAME.sample
 
 prompt(" you choose: #{newchoice} and the computer choose: #{computer_choice}")
-display_results(newchoice, computer_choice)
+display_results(newchoice, computer_choice ,score_player, score_pc)
 
-if $score_pc.length >= 5
+if score_pc.length >= 5
 	prompt("PC reached 5 points and finished the game")
 	break
-elsif $score_player.length >= 5 
+elsif score_player.length >= 5 
 	prompt("you reached 5 points and finished the game")
 	break	
 end
